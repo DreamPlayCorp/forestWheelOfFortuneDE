@@ -1,0 +1,405 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+img {
+    width: 100%;
+}
+
+body {
+    line-height: 1;
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    background: #111111;
+    overflow-x: hidden;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+html, body {
+    margin: 0;
+    overflow: hidden;
+    background: #000;
+}
+#spin-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(#ffd700, #cc9900);
+    border: 3px solid #222;
+    border-radius: 50%;
+    box-shadow: inset 0 3px 5px rgba(255,255,255,0.5), 0 5px 15px rgba(0,0,0,0.6);
+    width: 16%;
+    height: 16%;
+    font-weight: bold;
+    font-size: clamp(8px, 2vw, 16px);
+    font-family: sans-serif;
+    cursor: pointer;
+    z-index: 10;
+}
+#spin-btn:active {
+    transform: translate(-50%, -50%) scale(0.95);
+    box-shadow: inset 0 2px 3px rgba(0,0,0,0.6);
+}
+#result {
+    position: absolute;
+    bottom: 20px;
+    color: white;
+    font-size: 18px;
+    font-family: sans-serif;
+}
+canvas {
+    width: 100%;
+}
+
+.wrapper {
+    max-width: 1920px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 24px;
+    height: 100vh;
+    background: url("images/BG-one.webp") no-repeat;
+    background-size: cover;
+    padding: 0 16px;
+    
+    @media screen and (max-width: 1024px) {
+        justify-content: initial;
+    }
+
+    @media screen and (max-width: 480px) {
+        display: block;
+    }
+}
+
+.logo {
+    max-width: 232px;
+    width: 100%;
+    padding: 36px 0 0;
+    @media screen and (max-width: 480px) {
+        margin: 0 auto;
+    }
+}
+
+.avatar-wrapper {
+    max-width: 338px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    img {
+        width: 100%;
+    }
+
+    @media screen and (max-width: 1024px) {
+        max-width: 430px;
+    }
+
+    @media screen and (max-width: 768px){
+        max-width: 409px;
+    }
+    @media screen and (max-width: 480px){
+        display: none;
+    }
+}
+
+.left {
+    left: -120px;
+    bottom: -133px;
+    max-width: 663px;
+    transform: rotate(15deg);
+    @media screen and (max-width: 1280px) {
+        left: -140px;
+    }
+
+    @media screen and (max-width: 1024px) {
+        left: -370px;
+        bottom: -110px;
+        max-width: 820px;
+    }
+    @media screen and (max-width: 768px) {
+        left: -390px;
+        bottom: -340px;
+    }
+}
+
+.right {
+    right: 50px;
+    z-index: 7;
+
+    @media screen and (max-width: 1280px) {
+        right: 0px;
+    }
+    @media screen and (max-width: 1024px) {
+        right: -110px;
+    }
+    @media screen and (max-width: 768px) {
+        right: -230px;
+        bottom: -120px;
+    }
+}
+
+.avatar {
+    bottom: 0;
+}
+.image-wrapper {
+    max-width: 591px;
+    height: 591px;
+    position: relative;
+    z-index: 5;
+    img {
+        width: 100%;
+    }
+
+    @media screen and (max-width: 623px) {
+        height: calc(100vw - 32px);
+    }
+
+    @media screen and (max-width: 480px) {
+        max-width: 314px;
+        height: auto;
+        margin: 0 auto;
+    }
+}
+
+.spin {
+    animation: spin 3s both cubic-bezier(.56,-0.2,.57,1.27);
+}
+
+.popup {
+    position: fixed;
+    width: 520px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 999999;
+    border-radius: 16px;
+    img {
+        width: 100%;
+    }
+    
+    @media screen and (max-width: 550px) {
+        width: calc(100% - 21px);
+    }
+}
+
+.wheel-spin {
+    animation: wheel-spin 3s both cubic-bezier(.56,-0.2,.57,1.27);
+}
+
+.button {
+    max-width: 124px;
+    height: 124px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    &:hover {
+        cursor: pointer;
+    }
+    img {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.cursor {
+    width: 55px !important;
+    height: 60px;
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999;
+
+    @media screen and (max-width: 480px) {
+        width: 40px !important;
+        height: 40px;
+        top: 10px;
+    }
+}
+
+.yellow {
+    color: #EFC653;
+}
+.blur:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.52);
+    z-index: 9999;
+}
+.popup {
+    scale: 0;
+    transition: scale 0.5s;
+    background: url("./images/popup back.png") no-repeat;
+    background-size: cover;
+    border-radius: 24px;
+    padding: 32px 30px;
+
+    h2 {
+        font-weight: 700;
+        font-size: 24px;
+        letter-spacing: 0.31px;
+        text-align: center;
+        color: #EFC653;
+        margin: 0 0 16px 0;
+    }
+    p {
+        font-weight: 900;
+        font-size: 20px;
+        line-height: 100%;
+        letter-spacing: 0.31px;
+        text-align: center;
+        color: #fff;
+        margin: 0 0 16px 0;
+    }
+
+    .content {
+        background-color: #151100;
+        border-radius: 16px;
+        padding: 16px;
+        border: 1px solid #ECC153;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        margin: 0 auto 29px;
+        p {
+            font-weight: 900;
+            font-size: 24px;
+            line-height: 100%;
+            letter-spacing: 0.31px;
+            color: #fff;
+            text-align: left;
+            margin: 0;
+        }
+    }
+
+    .content-image {
+        min-width: 68px;
+        width: 68px;
+        height: 81px;
+        img {
+            max-width: 100%;
+        }
+    }
+
+    .button-claim {
+        background: url('./images/button (1).png') no-repeat;
+        background-size: cover;
+        text-decoration: none;
+        color: #12110E;
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 20px;
+        text-transform: capitalize;
+        padding: 12px 48px;
+        border-radius: 12px;
+        display: block;
+        width: fit-content;
+        margin: 0 auto;
+    }
+}
+.header {
+    font-weight: 800;
+    font-size: 28px;
+    line-height: 38px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #fff;
+    max-width: 1120px;
+    margin: 0 auto;
+
+    @media screen and (max-width: 768px) {
+        margin: 0 auto 0;
+    }
+
+    @media screen and (max-width: 480px) {
+        font-size: 18px;
+        line-height: 22px;
+        max-width: 316px;
+        margin: 0 auto 128px;
+    }
+    @media screen and (max-width: 360px) {
+        margin: 0 auto 35px;
+    }
+}
+
+.popup.active {
+    scale: 1;
+}
+
+.spin-text {
+    font-size: 24px;
+    font-weight: bold;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    &:hover {
+        cursor: pointer;
+    }
+}
+/*@keyframes spin {*/
+/*    0% {*/
+/*        transform: rotate(0deg);*/
+/*    }*/
+/*    100% {*/
+/*        transform: rotate(1080deg);*/
+/*    }*/
+/*}*/
+
+/*@keyframes wheel-spin {*/
+/*    0% {*/
+/*        transform: rotate(0deg);*/
+/*    }*/
+/*    100% {*/
+/*        transform: rotate(855deg);*/
+/*    }*/
+/*}*/
+

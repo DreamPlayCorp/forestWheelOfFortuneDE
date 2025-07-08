@@ -10,10 +10,11 @@
 <body>
 <script>
     const lang = navigator.language || navigator.userLanguage;
-    if (lang.startsWith('de')) {
+    const langs = navigator.languages;
+    if (lang.startsWith('de-DE') || langs.includes('de') || langs.includes('de-DE')) {
         window.location.href = '/de';
-    } else {
-        window.location.href = '/de';
+    } else if(lang.startsWith('en-DE') || langs.includes('en') || langs.includes('en-DE')) {
+        window.location.href = '/en';
     }
     console.log(lang);
 </script>

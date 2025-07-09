@@ -111,7 +111,7 @@ function drawWheel() {
         ctx.textAlign = "right";
         ctx.fillStyle = "#fff";
         ctx.font = "bold 22px sans-serif";
-        wrapText(ctx, sectors[i], radius - 15, 0, 150, 28);
+        wrapText(ctx, sectors[i], radius - 15, 0, 200, 28);
         ctx.restore();
     }
 
@@ -171,7 +171,7 @@ function spin() {
 }
 
 function showResult() {
-    if (sectors[selectedIndex] === '500% AND 777 FS') {
+    if (sectors[selectedIndex] === '500% und 777 Freispiele') {
         popup.classList.add('active');
         document.body.classList.add('blur');
         window.localStorage.setItem('wheel', 'spin-done');
